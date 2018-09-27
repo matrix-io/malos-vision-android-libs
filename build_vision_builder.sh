@@ -29,6 +29,7 @@ print_details(){
   echo ""
   echo "opencv branch:"
   echo "$branch"
+  echo ""
   echo "output:"
   echo ""
   du -hs tmp/android_lib/*
@@ -60,6 +61,8 @@ build_arch () {
 }
 
 build_package () {
+  echo ""
+  echo "building package.."
   cd tmp/
   DATE=`date +%Y%m%d`
   tar jcf ../${outputname}_${branch}_$1_$DATE.tar.bz2 android_lib
