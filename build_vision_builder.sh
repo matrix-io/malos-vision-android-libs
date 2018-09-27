@@ -48,7 +48,6 @@ build_arch_linux () {
   ./build_vision_libs.sh
   cp -r android_lib/* tmp/android_lib/
   print_header $1 
-  print_details $1
 }
 
 build_arch () {

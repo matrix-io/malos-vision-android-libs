@@ -1,6 +1,6 @@
 # malos-vision-android-libs
 
-Builder for C++ MALOS vision libraries on Android (multiarch). The current scripts build the next libraries:
+Builder for MALOS C++ vision library dependencies on Android (multiarch). The current scripts build the next libraries:
 
 - [X] boost
 - [X] gflags
