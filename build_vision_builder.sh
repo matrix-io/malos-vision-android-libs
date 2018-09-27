@@ -38,9 +38,7 @@ print_details(){
 
 clean () {
   rm -rf ./android_lib
-  mkdir ./android_lib
   rm -rf ./tmp
-  mkdir -p ./tmp/android_lib
 }
 
 build_arch_linux () {
@@ -54,6 +52,8 @@ build_arch_linux () {
 
 build_arch () {
   clean
+  mkdir ./android_lib
+  mkdir -p ./tmp/android_lib
   build_arch_linux "$1"
   build_package "$1"
   print_details  "$1"
