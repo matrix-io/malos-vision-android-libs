@@ -6,7 +6,6 @@
 # docker image: https://github.com/sh1r0/caffe-android-lib
 ##########################################################
 
-cp ../build_vision_libs.sh .
 outputname=android_vision_libs
 cd opencv
 branch=`git describe --exact-match --abbrev=0`
@@ -45,9 +44,11 @@ clean () {
 build_arch_linux () {
   rm -rf ./android_lib/*
   export ANDROID_ABI=$1
+  cp ../build_vision_libs.sh .
   ./build_vision_libs.sh
   cp -r android_lib/* tmp/android_lib/
   print_header $1 
+  rm build_vision_libs.sh
 }
 
 build_arch () {

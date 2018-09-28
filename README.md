@@ -21,8 +21,8 @@ Tested with `android-ndk-r15c` and `Android tools_r25.2.5`. Please check also th
 ``` bash
 git submodule update --init --recursive
 cd caffe-android-lib
-../build_vision_builder.sh clean
-../build_vision_builder.sh
+../builder.sh clean
+../builder.sh
 ```
 
 ## Output
