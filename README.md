@@ -14,7 +14,7 @@ Builder for MALOS C++ vision library dependencies on Android (multiarch). The cu
 
 ## Dependencies
 
-Tested with `android-ndk-r15c` and `Android tools_r25.2.5`
+Tested with `android-ndk-r15c` and `Android tools_r25.2.5`. Please check also the `OpenCV` version. Current tests are in 3.4.3
 
 ## Building
 
