@@ -27,6 +27,8 @@ cd caffe-android-lib
 
 ## Output
 
+the output packages are generated in root directory:
+
 ``` bash
 android_vision_libs_3.1.0_armeabi_20180927.tar.bz2
 android_vision_libs_3.1.0_armeabi-v7a_20180927.tar.bz2

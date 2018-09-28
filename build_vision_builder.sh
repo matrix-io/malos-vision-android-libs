@@ -64,7 +64,9 @@ build_package () {
   echo "building package.."
   cd tmp/
   DATE=`date +%Y%m%d`
-  tar jcf ../${outputname}_${branch}_$1_$DATE.tar.bz2 android_lib
+  tar jcf ../../${outputname}_${branch}_$1_$DATE.tar.bz2 android_lib
+  du -hs ../../${outputname}_${branch}_$1_$DATE.tar.bz2 android_lib
+  echo "done"
   cd ..
 }
 
