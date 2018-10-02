@@ -32,7 +32,7 @@ print_details(){
   echo "output:"
   echo ""
   du -hs tmp/android_lib/*
-  du -hs  ${outputname}_${branch}_$1_$DATE.tar.bz2
+  du -hs ../${outputname}_${branch}_$1_$DATE.tar.bz2
   echo ""
 }
 
