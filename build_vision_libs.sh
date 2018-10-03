@@ -14,6 +14,7 @@ pushd "${PROJECT_DIR}"
 ./scripts/build_crossguid.sh
 ./scripts/build_protobuf_host.sh
 ./scripts/build_protobuf.sh
+./scripts/build_matrixio_protos.sh
 ./scripts/build_opencv.sh
 
 popd
