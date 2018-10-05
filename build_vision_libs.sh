@@ -15,6 +15,8 @@ pushd "${PROJECT_DIR}"
 ./scripts/build_protobuf_host.sh
 ./scripts/build_protobuf.sh
 ./scripts/build_matrixio_protos.sh
+./scripts/build_libzmq_cmake.sh
+./scripts/build_matrix_malos_lib.sh
 ./scripts/build_opencv.sh
 
 popd
