@@ -99,9 +99,3 @@ RUN cd /opt && \
     ../builder.sh
 # Set the environment variable for the libs built
 ENV MALOS_ANDROID_LIBS=/opt/malos-vision-android-libs/caffe-android-lib/android_lib
-
-
-COPY . /src
-COPY ./local.properties.docker /src/local.properties
-
-
