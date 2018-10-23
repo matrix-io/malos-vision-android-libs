@@ -1,4 +1,3 @@
-
 FROM ubuntu:16.04
 
 # Thanks to https://gist.github.com/wenzhixin/43cf3ce909c24948c6e7
@@ -22,43 +21,24 @@ ENV PATH="$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$GRADLE_HOME/bi
 ENV ANT_HOME="/opt/apache-ant-1.10.5"
 ENV PATH=${PATH}:${ANT_HOME}/bin
 
-RUN apt-get update && apt-get install --yes \
+RUN apt-get update && apt-get install --no-install-recommends --yes \
     autoconf \
     automake \
     build-essential \
     ca-certificates \
     cmake \
-    curl \
-    devscripts \
     dh-systemd \
     fakeroot \
     git \
-    libtool \
-    libunicap2 \
-    libunicap2-dev \
-    libdc1394-22-dev \
-    libdc1394-22 \
-    libdc1394-utils \
-    libv4l-0 \
-    libv4l-dev \
-    libssl-dev \
-    libavcodec-dev \
-    libavformat-dev \
     libswscale-dev \
-    libgtk2.0-dev \
-    libjpeg-dev \
-    libpng-dev \
     libopenexr-dev \
-    libeigen3-dev \
-    libzmq3-dev \
     lintian \
-    openssl \
     unzip \
     yasm
 
-RUN apt-get install -y software-properties-common && add-apt-repository -y ppa:webupd8team/java && \
+RUN apt-get install --no-install-recommends --yes software-properties-common && add-apt-repository -y ppa:webupd8team/java && \
     apt-get update && echo debconf shared/accepted-oracle-license-v1-1 select true | debconf-set-selections && echo debconf shared/accepted-oracle-license-v1-1 seen true | debconf-set-selections && \
-    apt-get install -y oracle-java8-installer
+    apt-get install --no-install-recommends --yes oracle-java8-installer
 
 # Get SDK tools (link from https://developer.android.com/studio/index.html#downloads)
 RUN mkdir -p ${ANDROID_HOME} && cd ${ANDROID_HOME} && \
@@ -89,13 +69,6 @@ RUN cd  /opt && \
     wget -q --no-check-certificate https://archive.apache.org/dist/ant/binaries/apache-ant-1.10.5-bin.zip && \
     unzip apache-ant-1.10.5-bin.zip && \
     rm apache-ant-1.10.5-bin.zip
-# Get the dependencies needed and build the android-libs
-RUN cd /opt && \ 
-    git clone https://github.com/matrix-io/malos-vision-android-libs.git && \
-    cd malos-vision-android-libs && \
-    git clone https://github.com/hpsaturn/caffe-android-lib.git && \
-    cd caffe-android-lib && git checkout av/maloslib && git clone https://github.com/matrix-io/matrix-malos-lib.git && git clone https://github.com/matrix-io/protocol-buffers.git matrixio_protos && \
-    git submodule update --init --recursive && \
-    ../builder.sh
+
 # Set the environment variable for the libs built
 ENV MALOS_ANDROID_LIBS=/opt/malos-vision-android-libs/caffe-android-lib/android_lib

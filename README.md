@@ -27,6 +27,14 @@ cd caffe-android-lib
 ../builder.sh
 ```
 
+## Building with docker
+
+In order to build easily you will need `docker-compose` installed
+
+``` bash
+docker-compose up --build libs-builder
+```
+
 ## Output
 
 the output packages are generated in root directory:
