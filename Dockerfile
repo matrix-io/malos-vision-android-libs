@@ -69,6 +69,3 @@ RUN cd  /opt && \
     wget -q --no-check-certificate https://archive.apache.org/dist/ant/binaries/apache-ant-1.10.5-bin.zip && \
     unzip apache-ant-1.10.5-bin.zip && \
     rm apache-ant-1.10.5-bin.zip
-
-# Set the environment variable for the libs built
-ENV MALOS_ANDROID_LIBS=/opt/malos-vision-android-libs/caffe-android-lib/android_lib

@@ -10,7 +10,7 @@ services:
         cd /opt/src/
         rm -rf caffe-android-lib && rm -rf android_vision_libs*
         git clone https://github.com/hpsaturn/caffe-android-lib.git && \
-        cd caffe-android-lib && git checkout av/maloslib && git clone https://github.com/matrix-io/matrix-malos-lib.git && git clone https://github.com/matrix-io/protocol-buffers.git matrixio_protos && \
+        cd caffe-android-lib && git clone https://github.com/matrix-io/matrix-malos-lib.git && git clone https://github.com/matrix-io/protocol-buffers.git matrixio_protos && \
         git submodule update --init --recursive && \
         ../builder.sh
         
