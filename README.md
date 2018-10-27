@@ -7,10 +7,12 @@ Builder for MALOS C++ vision library dependencies on Android (multiarch). The cu
 - [X] glog
 - [X] lmdb
 - [X] protobuf
-- [X] protos_root
+- [x] protobuf-host
 - [X] crossguid
 - [X] opencv
-- [X] matrixio protos
+- [X] libzmq
+- [X] matrixio_protos
+- [X] matrix-malos-lib
 - [ ] snappy 
 - [ ] leveldb
 
