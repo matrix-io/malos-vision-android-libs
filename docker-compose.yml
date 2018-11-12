@@ -11,7 +11,7 @@ services:
         rm -rf android_vision_libs*
         cd caffe-android-lib && \
         git submodule update --init --recursive && \
-        ../builder.sh
+        ../builder.sh armeabi-v7a
         
     volumes:
       - .:/opt/src

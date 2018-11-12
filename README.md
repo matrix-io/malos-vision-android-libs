@@ -25,6 +25,8 @@ Tested with `android-ndk-r15c` and `Android tools_r25.2.5`. Please check also th
 In order to build easily you will need `docker-compose` installed
 
 ``` bash
+git clone https://github.com/matrix-io/malos-vision-android-libs.git
+cd malos-vision-android-libs
 docker-compose up --build libs-builder
 ```
 
