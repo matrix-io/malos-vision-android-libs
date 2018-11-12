@@ -20,21 +20,25 @@ Builder for MALOS C++ vision library dependencies on Android (multiarch). The cu
 
 Tested with `android-ndk-r15c` and `Android tools_r25.2.5`. Please check also the `OpenCV` version. Current tests are in 3.4.3
 
-## Building with docker
+## Docker Building
 
 In order to build easily you will need `docker-compose` installed
 
 ``` bash
+git clone https://github.com/matrix-io/malos-vision-android-libs.git
+cd malos-vision-android-libs
 docker-compose up --build libs-builder
 ```
 
-## Building
+## Local Building
 
 ``` bash
+git clone https://github.com/matrix-io/malos-vision-android-libs.git
+cd malos-vision-android-libs
 git submodule update --init --recursive
 cd caffe-android-lib
 ../builder.sh clean
-../builder.sh
+../builder.sh armeabi-v7a
 ```
 
 ## Output
