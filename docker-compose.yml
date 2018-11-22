@@ -11,6 +11,7 @@ services:
         rm -rf android_vision_libs*
         cd caffe-android-lib && \
         git submodule update --init --recursive && \
+        cd protobuf && git cherry-pick cba18efe1861d1fc1eecd6dc2af86fc1f0d9922f && cd .. && \
         ../builder.sh armeabi-v7a
         
     volumes:
