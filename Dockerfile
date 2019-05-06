@@ -1,12 +1,19 @@
-FROM ubuntu:16.04
+FROM ubuntu:bionic
 
 # Thanks to https://gist.github.com/wenzhixin/43cf3ce909c24948c6e7
 
 ENV DEBIAN_FRONTEND noninteractive
-ENV JAVA_HOME       /usr/lib/jvm/java-8-oracle
-ENV LANG            en_US.UTF-8
-ENV LC_ALL          en_US.UTF-8
 
+RUN apt-get update \
+  && apt-get install --yes --no-install-recommends locales \
+  && locale-gen en_US.UTF-8 \
+  && apt-get clean && rm -rf /var/tmp/*
+
+ENV LANG en_US.UTF-8  
+ENV LANGUAGE en_US:en  
+ENV LC_ALL en_US.UTF-8  
+
+ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64
 ENV HOME=/opt
 ENV ANDROID_HOME="$HOME/tools"
 ENV ANDROID_SDK_TOOLS="$HOME/tools"
@@ -33,12 +40,12 @@ RUN apt-get update && apt-get install --no-install-recommends --yes \
     libswscale-dev \
     libopenexr-dev \
     lintian \
+    openjdk-8-jdk \
+    software-properties-common \
     unzip \
-    yasm
-
-RUN apt-get install --no-install-recommends --yes software-properties-common && add-apt-repository -y ppa:webupd8team/java && \
-    apt-get update && echo debconf shared/accepted-oracle-license-v1-1 select true | debconf-set-selections && echo debconf shared/accepted-oracle-license-v1-1 seen true | debconf-set-selections && \
-    apt-get install --no-install-recommends --yes oracle-java8-installer
+    yasm \
+    wget \
+  && apt-get clean && rm -rf /var/tmp/*
 
 # Get SDK tools (link from https://developer.android.com/studio/index.html#downloads)
 RUN mkdir -p ${ANDROID_HOME} && cd ${ANDROID_HOME} && \
@@ -64,6 +71,7 @@ RUN mkdir $ANDROID_HOME/licenses && \
   $ANDROID_HOME/tools/bin/sdkmanager "lldb;3.1" && \
   $ANDROID_HOME/tools/bin/sdkmanager "cmake;3.6.4111459" && \
   $ANDROID_HOME/tools/bin/sdkmanager "extras;m2repository;com;android;support;constraint;constraint-layout-solver;1.0.2" 
+
 # Get the Apache Ant
 RUN cd  /opt && \
     wget -q --no-check-certificate https://archive.apache.org/dist/ant/binaries/apache-ant-1.10.5-bin.zip && \
